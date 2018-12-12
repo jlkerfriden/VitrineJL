@@ -1,0 +1,172 @@
+/********** Main ***********/
+
+main {
+	margin: 2px auto 0 auto;
+	padding-bottom: 150px;
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 1120px;
+}
+
+
+
+
+
+
+
+
+/********** Header and Nav ***********/
+
+
+.site-title {
+	background: #312f2f;
+	border-bottom: 2px solid #f4d779;
+	display: block;
+	padding: 20px;
+	height: 74px;
+}
+@media screen and (max-width: 640px) {
+	.site-title {
+		height: 52px;
+	}
+}
+.site-title h1 {
+	animation: la-vitrine;
+	animation-duration: 1.5s;
+	/*animation-delay: 0.5s;*/
+	/*animation-fill-mode: forwards;*/
+	color: #fafafa;
+	font-family: 'Tangerine', cursive, sans-serif;
+	font-size: 64px;
+	font-weight: normal;
+	margin: 0 0 0 100px;
+	opacity: 1;
+	user-select: none;
+}
+.site-title a {
+	text-decoration: none;
+}
+
+.site-title-content {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+.site-title-content div {
+	width: 450px;
+}
+
+@keyframes la-vitrine {
+	0% { opacity: 0; margin-left: 80px;}
+	33% { opacity: 0; margin-left: 80px;}
+	100% { opacity: 1; margin-left: 100px;}
+}
+.site-title h1::after {
+	animation: de-jean-louis;
+	animation-duration: 2s;
+	/*animation-delay: 1.0s;*/
+	/*animation-fill-mode: forwards;*/
+	color: #fafafa;
+	content: "de Jean-Louis";
+	display: block;
+	font-family: 'Tangerine', cursive, sans-serif;
+	font-size: 34px;
+	font-weight: normal;
+	margin: -25px 0 0 185px;
+	opacity: 1;
+	white-space: nowrap;
+	max-width: 200px;
+}
+@keyframes de-jean-louis {
+	0% { opacity: 0; margin-left: 210px;}
+	50% { opacity: 0; margin-left: 210px;}
+	100% { opacity: 1; margin-left: 185px;}
+}
+@media screen and (max-width: 640px) {
+	.site-title h1 {
+		font-size: 48px;
+		/*margin: 0 0 0 69px;*/
+		margin: -8px 0 0 69px;
+	}
+	@keyframes la-vitrine {
+		0% { opacity: 0; margin-left: 50px;}
+		33% { opacity: 0; margin-left: 50px;}
+		100% { opacity: 1; margin-left: 69px;}
+	}
+	.site-title h1::after {
+		font-size: 28px;
+		/*margin: -25px 0 0 145px;*/
+		margin: -6px 0 0 50px;
+	}
+	@keyframes de-jean-louis {
+		/*from { opacity: 0; margin-left: 170px;}
+		to { opacity: 1; margin-left: 145px;}*/
+		0% { opacity: 0; margin-left: 75px;}
+		50% { opacity: 0; margin-left: 75px;}
+		100% { opacity: 1; margin-left: 50px;}
+	}
+}
+.site-title span {
+	color: #fafafa;
+	cursor: pointer;
+	font-size: 28px;
+	top: 22px;
+	left: 23px;
+	padding: 5px 12px;
+	position: absolute;
+	user-select: none;
+}
+.site-title span:hover {
+	background: #535353;
+}
+@media screen and (min-width: 641px) {
+	.site-title span {
+		display: none;
+	}
+}
+.header-line {
+	border-top: 1px solid #444;
+	height: 0;
+	width: 100%;
+}
+
+
+
+
+
+/********** Footer ***********/
+
+
+
+
+
+footer {
+	display: flex;
+	flex-direction: column;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	/*height: 70px;*/
+}
+footer p {
+	color: #fafafa;
+	font-family: 'Tangerine', cursive, sans-serif;
+	font-size: 25px;
+}
+.footer-top {
+	background: #e6e6e6;
+	text-align: center;
+	padding: 10px 0;
+}
+.footer-top span {
+	margin: 6px 12px;
+}
+.footer-top span a {
+	font-size: 14px;
+	outline: 0;
+	text-decoration: none;
+}
+.footer-bottom {
+	background: #312f2f;
+	text-align: center;
+}

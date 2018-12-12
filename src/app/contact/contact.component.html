@@ -1,0 +1,45 @@
+<div *ngIf="!successfullySent" class="container-flex-row sign-in-container">
+	<div class="box-default form-center-large container-flex-column">
+		<span class="form-title">
+			Contact us !
+		</span>
+		<form [formGroup]="contact" (ngSubmit)="onSubmit()" #formDir="ngForm">
+			<div class="form-group container-flex-column">
+				<label for="contactName">Name</label>
+				<span class="input-default" [ngClass]="{
+				   	'input-fail': contactName.dirty && contactName.invalid,
+					'input-ok': contactName.dirty && contactName.valid}">
+					<input id="contactName"  size="23" formControlName="contactName" placeholder="Name" required>
+				</span>
+				<span *ngIf="contactName.invalid && contactName.dirty" class="input-result-invalid">A valid name is required.</span>
+			</div>
+			
+			
+
+			<div class="form-group container-flex-column">
+				<label for="contactEmail">Email address</label>
+				<span class="input-default" [ngClass]="{
+				   	'input-fail': contactEmail.dirty && contactEmail.invalid,
+					'input-ok': contactEmail.dirty && contactEmail.valid}">
+					<input id="contactEmail"  size="23" formControlName="contactEmail" placeholder="Email address" required>
+				</span>
+				<span *ngIf="contactEmail.invalid && contactEmail.dirty" class="input-result-invalid">Invalid email address.</span>
+			</div>
+
+			<div class="form-group container-flex-column">
+				<label for="contactMessage">Message</label>
+				<textarea id="contactMessage" rows="8" cols="60" formControlName="contactMessage" placeholder="Message"></textarea>
+			</div>
+			
+
+			<div class="form-validate container-flex-column">
+				<button class="button-blue" type="submit" [disabled]="!formDir.form.valid">Send</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div *ngIf="successfullySent">
+	<span class="form-title">
+		Your message has been successfully sent, thank you !
+	</span>
+</div>

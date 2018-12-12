@@ -1,0 +1,46 @@
+<div class="container-flex-row register-container">
+	<div class="box-default form-center container-flex-column">
+		<span class="form-title">
+			Create a new account
+		</span>
+		<form [formGroup]="register" (ngSubmit)="onSubmit()" #formDir="ngForm">
+			<div class="form-group container-flex-column">
+				<label for="registerEmail">Email address</label>
+				<span class="input-default" [ngClass]="{
+				   	'input-fail': registerEmail.dirty && registerEmail.invalid,
+					'input-ok': registerEmail.dirty && registerEmail.valid}">
+					<input id="registerEmail"  size="23" formControlName="registerEmail" placeholder="Email address" required>
+				</span>
+				<span *ngIf="registerEmail.invalid && registerEmail.dirty" class="input-result-invalid">Invalid email address.</span>
+			</div>
+
+			<div class="form-group container-flex-column">
+				<label for="registerPassword1">Password</label>
+				<span class="input-default" [ngClass]="{
+				   	'input-fail': registerPassword1.dirty && registerPassword1.invalid,
+					'input-ok': registerPassword1.dirty && registerPassword1.valid}">
+					<input id="registerPassword1" type="password" size="23" maxlength="24" formControlName="registerPassword1" placeholder="Password" required>
+				</span>
+				<span *ngIf="registerPassword1.invalid && registerPassword1.dirty" class="input-result-invalid">Password must contain between {{minPasswordChars}} and {{maxPasswordChars}} characters.</span>
+			</div>
+
+			<div class="form-group container-flex-column">
+				<label for="registerPassword2">Confirm Password</label>
+				<span class="input-default" [ngClass]="{
+				   	'input-fail': registerPassword2.dirty && register.errors?.mismatch,
+					'input-ok': registerPassword2.dirty && registerPassword2.valid && !register.errors?.mismatch}">
+					<input id="registerPassword2" type="password" size="23" maxlength="24" formControlName="registerPassword2" placeholder="Confirm Password" required>
+				</span>
+				<span *ngIf="registerPassword2.dirty && register.errors?.mismatch" class="input-result-invalid">
+					Passwords mismatch.
+				</span>
+			</div>
+
+			<div class="form-validate container-flex-column">
+				<button class="button-blue" type="submit" [disabled]="!formDir.form.valid">Register</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+        

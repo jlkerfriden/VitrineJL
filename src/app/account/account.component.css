@@ -1,0 +1,23 @@
+.container-account-menu, .container-account-list {
+	font-size: 15px;
+	margin: 10px;
+}
+.container-account-menu {
+	border-right: 1px solid #CCC;
+	min-height: 600px;
+	min-width: 132px;
+	width: 132px;
+}
+.container-account-list {
+	width: 100%;
+}
+
+
+@media screen and (max-width: 640px) {
+	.container-account-menu {
+		display: none;
+	}
+	.container-account-list {
+		margin: 0;
+	}
+}

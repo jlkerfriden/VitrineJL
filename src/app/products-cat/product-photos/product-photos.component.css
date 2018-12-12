@@ -1,0 +1,27 @@
+.container-product-photos-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.container-product-photos-list img, .container-product-photos-list div {
+	height: 80px;
+	width: 80px;
+}
+.container-product-photos-list div {
+	cursor: pointer;
+	margin: 8px;
+}
+.container-product-photos-list img {
+	border: 1px solid rgba(0, 0, 0, 0);
+}
+.container-product-photos-list img:hover {
+	border: 1px solid #444;
+}
+
+
+@media screen and (max-width: 640px) {
+	.container-product-photos-list {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}

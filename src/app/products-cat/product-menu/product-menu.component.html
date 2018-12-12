@@ -1,0 +1,9 @@
+<div class="product-menu-title">
+	Categories
+</div>
+<ul class="product-categories-list">
+	<li *ngFor="let prodCat of productCats">
+		<a routerLink="/products-cat/{{prodCat._id[0]._id}}">
+		<span class="cat-list-dot">›</span>{{prodCat._id[0].name}} ({{prodCat.count}})</a>
+	</li>
+</ul>

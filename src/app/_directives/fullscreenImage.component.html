@@ -1,0 +1,5 @@
+<div class="container-fullscreenImage" *ngIf="activated" (click)="close()">
+	<!--<img src="{{url.url}}">-->
+	<div class="fullscreenImage-image" [ngStyle]="{ 'background-image': 'url(' + url.url + ')'}" (touchstart)="touchstart($event)" (touchend)="touchend($event)" (touchmove)="touchmove($event)"></div>
+	<div *ngIf="showZoom" class="fullscreenImage-zoom" appFullscreenImage [backgroundSrc]="url.url" [xPos]="xPos" [yPos]="yPos"></div>
+</div>

@@ -1,0 +1,28 @@
+<header class="site-title">
+	<div class="container-flex-row site-title-content">
+		<div>
+			<span (click)="toggleNav()">☰</span>
+			<a routerLink="home/"><h1>La Vitrine</h1></a>
+		</div>
+		<app-header style="display: flex; flex-grow: 1;"></app-header>
+	</div>
+</header>
+<div class="header-line"></div>
+<app-navigation [navigation]="navigation" (navChanged)="updateNav($event)"></app-navigation>
+
+
+<main>
+	<alert></alert>
+	<router-outlet></router-outlet>
+</main>
+
+
+ <footer>
+	 <div class="footer-top">
+		 <span><a routerLink="about-us/">About</a></span>
+		 <span><a routerLink="contact/">Contact</a></span>
+	 </div>
+	 <div class="footer-bottom">
+	 	<p>©Copyright 2018 by JL. All rights reversed.</p>
+	 </div>
+</footer>

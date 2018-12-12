@@ -1,0 +1,24 @@
+.account-categories-list {
+	list-style: none;
+	padding-left: 15px;
+}
+@media screen and (max-width: 640px) {
+	.account-categories-list {
+		padding-left: 6px;
+	}
+}
+.account-categories-list li {
+	margin-top: 7px;
+}
+.account-categories-list a {
+	cursor: pointer;
+	text-decoration: none;
+}
+.account-categories-list li:hover {
+	font-weight: bold;
+}
+.cat-list-dot {
+	font-size: 16px;
+	margin-right: 8px;
+	user-select: none;
+}

@@ -1,0 +1,15 @@
+.container-product-menu, .container-product-list {
+	font-size: 15px;
+	margin: 10px;
+}
+.container-product-menu {
+	/*background: #B6C;*/
+	border-right: 1px solid #CCC;
+	min-height: 600px;
+	min-width: 128px;
+	width: 180px;
+}
+.container-product-list {
+	/*background: #6B7;*/
+	width: 100%;
+}

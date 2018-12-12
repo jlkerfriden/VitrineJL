@@ -1,0 +1,31 @@
+.account-summary {
+	font-size: 16px;
+	font-weight: bold;
+}
+.summary-avatar {
+	margin: 10px;
+	width: 128px;
+}
+.summary-avatar img {
+	border: 1px solid #666;
+	height: 128px;
+	width: 128px;
+}
+.summary-display-name {
+	margin: 10px;
+}
+.summary-display-name form {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 640px) {
+	.summary-avatar {
+		height: 80px;
+		width: 80px;
+	}
+	.summary-avatar img {
+		height: 80px;
+		width: 80px;
+	}
+}

@@ -1,0 +1,65 @@
+.home-title-sitename {
+	font-family: 'Tangerine', cursive, sans-serif;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+.toxicSeries {
+	margin-bottom: 20px;
+	text-align: center;
+	height: 30px;
+	width: 100%;
+}
+
+.toxic-gas, .toxic-blood {
+	float: right; display: inline-block;
+	margin-top: 50px;
+	position: relative;
+	height: 100px;
+	width: 100px;
+	z-index: 5;
+}
+
+.toxic-container {
+	background: #A99;
+}
+.toxic-series-title {
+	background: #1B1818;
+	text-align: center;
+	padding-top: 40px;
+	user-select: none;
+}
+.toxic-series {
+	width: 80%;
+	max-width: 593px;
+}
+.toxic-logo {
+	margin-bottom: 16px;
+	width: 6%;
+	max-width: 50px;
+}
+.toxic-background {
+	background: url("../../assets/img/toxic/toxicBackground.jpg") no-repeat center;
+	background-size: cover;
+	box-shadow: 0 4px 5px #111 inset, 0 -6px 4px #111 inset;
+	text-align: center;
+	padding: 40px 0;
+	user-select: none;
+}
+.toxic-background img {
+	margin: 30px 6%;
+	height: 324px;
+}
+.toxic-background img:hover {
+	opacity: 0.8;
+}
+.toxic-bottom {
+	background: #1B1818;
+	height: 50px;
+}
+
+@media screen and (max-width: 640px) {
+	.toxic-background img {
+		height: 240px;
+	}
+}

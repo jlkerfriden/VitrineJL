@@ -1,0 +1,27 @@
+.product-menu-title {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+.product-categories-list {
+	list-style: none;
+	padding-left: 15px;
+}
+@media screen and (max-width: 640px) {
+	.product-categories-list {
+		padding-left: 6px;
+	}
+}
+.product-categories-list li {
+	margin-top: 7px;
+}
+.product-categories-list a {
+	text-decoration: none;
+}
+.product-categories-list li:hover {
+	font-weight: bold;
+}
+.cat-list-dot {
+	font-size: 16px;
+	margin-right: 8px;
+	user-select: none;
+}

@@ -1,0 +1,49 @@
+<nav *ngIf="navigation || !mobile" (click)="toggleNav()">
+	<ul>
+		<li>
+			<a routerLink="home/">Home</a>
+		</li>
+		<li>
+			<a routerLink="products-cat/keycaps">Keycaps</a>
+		</li>
+		<li>
+			<a routerLink="about-us/">About</a>
+		</li>
+		<li>
+			<a routerLink="contact/">Contact</a>
+		</li>
+		<!--<li><a routerLink="template-proto/">Template proto</a></li>-->
+		<li *ngIf="!sessionStrage.getItem('currentUser')">
+			<a routerLink="register/">Register</a>
+		</li>
+		<li *ngIf="!sessionStrage.getItem('currentUser')">
+			<a routerLink="sign-in/">Sign in</a>
+		</li>
+		<li *ngIf="sessionStrage.getItem('currentUser')">
+			<a routerLink="account/">Account</a>
+		</li>
+		<!--<li *ngIf="sessionStrage.getItem('currentUser')">
+			<a routerLink="account/settings/">Settings</a>
+		</li>
+		<li *ngIf="sessionStrage.getItem('currentUser')">
+			<a routerLink="account/cart/">Basket</a>
+		</li>
+		<li *ngIf="sessionStrage.getItem('currentUser')">
+			<a routerLink="account/orders/">Order history</a>
+		</li>-->
+		<li *ngIf="sessionStrage.getItem('currentUser')">
+			<a (click)="logout()" routerLink="home/">Logout</a>
+		</li>
+	</ul>
+</nav>
+<div class="nav-current-location-container">
+	<div class="nav-current-location">
+		<span *ngFor="let route of currentRoute; let first = first; let last = last;">
+			<span *ngIf="!first" class="breadcrumb_space"> / </span>
+				<span *ngIf="!last">
+					<a routerLink="{{route.url}}/">{{route.label}}</a>
+				</span>
+				<span *ngIf="last"><b>{{route.label}}</b></span>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<p>Your shopping cart</p>
+<br><br>
+
+
+<div *ngIf="!chekoutRequestSent; else chekoutSent">
+	<div *ngIf="cartService.getProducts().length > 0; else emptyCart">
+		<div class="container-flex-row cart-col">
+			<div class="cart-product-col-img"></div>
+			<div class="cart-product-col-name"></div>
+			<div class="cart-product-col-available">Av.</div>
+			<div class="cart-product-col-unit-price">Unit price</div>
+			<div class="cart-product-col-quantity">Quantity</div>
+			<div class="cart-product-col-total-price">Total price</div>
+			<div class="cart-product-col-delete"></div>
+		</div>
+
+		<div class="container-flex-row cart-product" *ngFor="let product of cartService.getProducts()">
+			<a routerLink="/products-cat/{{product.product.category_id}}/product-detail/{{product.product._id}}" title="{{product.product.name}}"><img src="{{serverAddress}}/images/{{product.product.category_id}}/{{product.product._id}}/preview.jpg" alt="{{product.product.name}}" onerror="this.src='assets/img/image.jpg'"></a>
+			<div class="cart-product-name">
+				<a routerLink="/products-cat/{{product.product.category_id}}/product-detail/{{product.product._id}}">{{product.product.name}}</a>
+				<div class="cart-product-description">
+					{{product.product.description.substring(0, 200)}}
+					<span *ngIf="product.product.description.length > 200">
+						...
+					</span>
+				</div>
+			</div>
+			<div *ngIf="product.product.available" class="cart-product-available">✔</div>
+			<div *ngIf="!product.product.available" class="cart-product-unavailable">✖</div>
+			<div class="cart-product-unit-price">{{product.product.price.toFixed(2)}} €</div>
+			<div class="cart-product-quantity">
+				<div class="product-details-quantity">
+					<button class="input-number-small-button-decr" (click)="incrQuantity(product, -1)">-</button>
+					<span class="input-number-small">
+						<input type="text" maxlength="2" [(ngModel)]="product.quantity" (keyup)="calcGrandTotal()">
+					</span>
+					<button class="input-number-small-button-incr" (click)="incrQuantity(product, 1)">+</button>
+				</div>
+			</div>
+			<div class="cart-product-total-price">{{(product.product.price * product.quantity).toFixed(2)}} €</div>
+			<div class="cart-product-delete" (click)="deleteProduct(product)">✖</div>
+		</div>
+		<div class="cart-grand-total">
+			Total : {{(grandTotal).toFixed(2)}} € TTC
+		</div>
+
+		<br><br>
+		<span class="note"><u>Please note</u> : We are currently building up this site, so the only way you can checkout is by pressing this button that will contact us automatically with your cart. Please understand that we will answer you as fast as we can.</span>
+		<br><br><br>
+		
+		<div class="right">
+			<div *ngIf="!sessionStrage.getItem('currentUser')" class="warning">
+				You must <a routerLink="sign-in/">Login</a> to request a checkout.
+			</div>
+			<button class="button-blue cart-checkout-button" (click)="sendCheckoutRequest()" [disabled]="processingCheckoutRequest || !sessionStrage.getItem('currentUser')">
+				Send checkout request
+			</button>
+		</div>
+	</div>
+</div>
+<br><br><br><br>
+
+<ng-template #emptyCart>
+	<div class="info">
+		You have nothing in your cart yet !
+	</div>
+</ng-template>
+
+<ng-template #chekoutSent>
+	<div class="success">
+		Your checkout request has been successfully sent ! We will contact you as soon as possible.
+	</div>
+</ng-template>

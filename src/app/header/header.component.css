@@ -1,0 +1,121 @@
+.header-container {
+	display: flex;
+	flex-direction: row-reverse;
+	height: 70px;
+	width: 100%;
+	max-width: 700px;
+}
+
+.header-search-container {
+	padding: 0 25px;
+	width: 100%;
+}
+
+.header-product-search {
+	margin-top: 22px;
+	width: 100%;
+}
+.header-product-search input {
+	background: #EEE;
+	width: 100%;
+}
+@media screen and (max-width: 820px) {
+	.header-search-container {
+		padding: 0 5px;
+	}
+}
+@media screen and (max-width: 680px) {
+	.header-search-container {
+		display: none;
+	}
+}
+
+.header-icons-container {
+	margin-left: 20px;
+	width: 110px;
+	min-width: 110px;
+}
+
+.header-icon-account, .header-icon-cart {
+	background: url("../../assets/img/icons/icon-account.png") no-repeat center;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 16px;
+	overflow: visible;
+	height: 36px;
+	width: 36px;
+}
+.header-icon-cart {
+	background: url("../../assets/img/icons/icon-cart.png") no-repeat center;
+	margin-left: 30px;
+}
+.header-icon-account-on::after, .header-icon-cart-on::after {
+	animation: notification-pulse 2s linear infinite;
+	animation-delay: 1s;
+	border: 3px solid rgb(230, 198, 92);
+	border-radius: 16px;
+	content: "";
+	display: block;
+	height: 0;
+	width: 0;
+}
+.header-icon-account-on::before, .header-icon-cart-on::before {
+	background: rgb(230, 198, 92);
+	border-radius: 5px;
+	content: "";
+	display: block;
+	height: 10px;
+	width: 10px;
+}
+.header-icon-account-on::before, .header-icon-cart-on::before {
+	margin-top: 29px;
+	margin-left: 26px;
+}
+.header-icon-account-on::after, .header-icon-cart-on::after {
+	margin-top: -10px;
+	margin-left: 26px;
+}
+
+
+@media screen and (max-width: 640px) {
+	.header-icons-container {
+		margin-left: 6px;
+	}
+	.header-icon-account {
+		background: url("../../assets/img/icons/icon-account_min.png") no-repeat center;
+	}
+	.header-icon-cart {
+		background: url("../../assets/img/icons/icon-cart_min.png") no-repeat center;
+		margin-left: 18px;
+	}
+}
+
+
+
+
+@keyframes notification-pulse {
+    0% {
+		margin-top: -8px;
+		margin-left: 28px;
+		opacity: 1;
+		padding: 0;
+	}
+    10% {
+		margin-top: -13px;
+		margin-left: 23px;
+		opacity: 0.7;
+		padding: 5px;
+	}
+    20% {
+		margin-top: -18px;
+		margin-left: 18px;
+		opacity: 0;
+		padding: 10px;
+	}
+    100% {
+		margin-top: -18px;
+		margin-left: 18px;
+		opacity: 0;
+		padding: 10px;
+	}
+}

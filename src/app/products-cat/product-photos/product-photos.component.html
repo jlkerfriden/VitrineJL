@@ -1,0 +1,6 @@
+<!--{{product.name}}-->
+<div class="container-product-photos-list">
+	<div *ngFor="let photo of photos" (mouseover)="hoverMiniature(photo.img.src, photo.largeSrc)" (click)="clickMiniature(photo.largeSrc)">
+		<img src={{photo.img.src}}>
+	</div>
+</div>

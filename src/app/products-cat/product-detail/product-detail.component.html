@@ -1,0 +1,38 @@
+<div class="container-product-detail-components">
+	<fullscreenImage></fullscreenImage>
+	<div *ngIf="!loading" class="container-product-photos">
+		<app-product-photos [product]="product" [smallPhotoUrl]="smallPhotoUrl" [largePhotoUrl]="largePhotoUrl"></app-product-photos>
+	</div>
+	<div *ngIf="!loading" class="container-product-details">
+		<div class="product-details-img-block">
+			<img src={{smallPhotoUrl.url}} onerror="this.src='assets/img/image.jpg'" (click)="clickMiniature()">
+		</div>
+		<div class="product-details-text-block">
+			<span class="product-details-product-name" [ngClass]="{ 'toxic-text-shadow': theme === 'toxic', 'toxic-text': theme === 'toxic' }">{{product.name}}</span>
+			<span class="product-details-product-description" [ngClass]="{ 'toxic-text': theme === 'toxic' }">
+				{{product.description}}
+				<br><br>
+				Duis consequat vel neque sit amet facilisis. Vivamus eget elit vitae ligula efficitur interdum vitae in turpis. Vivamus vestibulum egestas bibendum. Sed ac libero vel turpis ullamcorper aliquet eu eu nisl. Cras rhoncus nunc purus, vitae pellentesque felis elementum in. Integer ut tristique ex, lobortis lobortis ligula. Vivamus auctor quam nec sapien suscipit, at tincidunt metus pulvinar. Nulla vitae velit risus. Proin ut volutpat elit, id ullamcorper ex. Duis condimentum, elit in pharetra ullamcorper, felis velit euismod magna, venenatis tristique dui ipsum id mi. Nam egestas vulputate ante, dapibus fermentum neque facilisis vitae. Nulla facilisi. Aenean pharetra lacus tellus. 
+			</span>
+			<span *ngIf="product.available" class="product-details-product-price">
+				<strong [ngClass]="{ 'toxic-text': theme === 'toxic' }">{{(product.price * productQuantity).toFixed(2)}}</strong><sup><small  [ngClass]="{ 'toxic-text': theme === 'toxic' }">€</small></sup>
+			</span>
+			<span *ngIf="!product.available" class="product-details-product-price">
+				<strong>Out of stock</strong>
+			</span>
+			<div class="product-details-quantity">
+				<button class="input-number-button-decr" (click)="incrQuantity(-1)">-</button>
+				<span class="input-number">
+					<input type="text" maxlength="2" [(ngModel)]="productQuantity">
+				</span>
+				<button class="input-number-button-incr" (click)="incrQuantity(1)">+</button>
+			</div>
+			<button class="button" [ngClass]="{ 'button-blue': theme === 'default', 'button-toxic': theme === 'toxic' }" (click)="addToCart()" [disabled]="!product.available">Add to cart</button>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="loading" class="loading-product">
+	<span *ngIf="theme == 'default'" class="loading-product-icon"></span>
+	<span *ngIf="theme == 'toxic'" class="loading-product-icon-toxic"></span>
+</div>

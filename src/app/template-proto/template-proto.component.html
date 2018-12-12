@@ -1,0 +1,61 @@
+<div>
+	<span class="input-default">
+		<input type="text" placeholder="Input">
+	</span>
+	<br><br>
+	<span class="input-ok">
+		<input type="text" placeholder="Input OK">
+	</span>
+	<br><br>
+	<span class="input-fail">
+		<input type="text" placeholder="Input Fail">
+	</span>
+	<br><br>
+	<span class="input-processing">
+		<input type="text" placeholder="Input Processing">
+	</span>
+	<br><br>
+	<span class="input-search">
+		<input type="search" placeholder="Search here...">
+	</span>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<button class="input-number-button-decr">-</button>
+		<span class="input-number">
+			<input type="text" value="1">
+		</span>
+		<button class="input-number-button-incr">+</button>
+	</div>
+	<br><br>
+	<div>
+		<button class="input-number-small-button-decr">-</button>
+		<span class="input-number-small">
+			<input type="text" value="1">
+		</span>
+		<button class="input-number-small-button-incr">+</button>
+	</div>
+	<br><br>
+		<textarea rows="5" cols="40" placeholder="Text area"></textarea>
+	<br><br>
+	<label>
+		<input type="checkbox"> Check
+	</label>
+	<br><br>
+	<select>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+	</select>
+	<br><br>
+	<button>Button</button>
+	<br><br>
+	<button class="button-blue">Button blue</button>
+	<br><br>
+</div>
+
+<ul>
+	<li *ngFor="let user of users">
+		{{user.id}} - {{user.name}}
+	</li>
+</ul>

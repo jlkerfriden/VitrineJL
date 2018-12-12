@@ -1,0 +1,15 @@
+<div class="container-flex-row header-container">
+	<div class="header-icons-container">
+		<a routerLink="account">
+			<div class="header-icon-account" [ngClass]="{'header-icon-account-on': notifAccount}"></div>
+		</a>
+		<a routerLink="cart">
+			<div class="header-icon-cart" [ngClass]="{'header-icon-cart-on': notifCart}"></div>
+		</a>
+	</div>
+	<div class="header-search-container">
+		<div class="input-search header-product-search">
+			<input type="search" [(ngModel)]="searchTerm" (keyup)="searchProducts()" placeholder="Search products...">
+		</div>
+	</div>
+</div>

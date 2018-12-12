@@ -1,0 +1,32 @@
+<div class="product-search-container">
+	<!--<div class="input-search product-search">
+		<input type="search" [(ngModel)]="searchTerm" (keyup)="searchProducts()" placeholder="Search products...">
+	</div>-->
+	<!--<select class="product-search-category">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+	</select>-->
+</div>
+<div *ngIf="!loading" class="container-product-list-anim">
+	<div class="container-flex-row">
+		<div class="products-title">
+			{{categoryName}}
+		</div>
+	</div>
+	<div class="container-flex-row products-list">
+		<div class="product-preview" *ngFor="let product of (displaySearchResults?searchedProducts:products)">
+			<a routerLink="product-detail/{{product._id}}">
+				<img src="{{serverAddress}}/images/{{product.category_id}}/{{product._id}}/preview.jpg" onerror="this.src='assets/img/image.jpg'">
+				<div>{{product.name}}</div>
+			</a>
+		</div>
+		<span *ngIf="displaySearchResults && !searchedProducts">
+			<b>0</b> product found.
+		</span>
+	</div>
+</div>
+<div *ngIf="loading" class="loading-product">
+	<span class="loading-product-icon"></span>
+</div>

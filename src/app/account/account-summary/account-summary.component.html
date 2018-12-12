@@ -1,0 +1,56 @@
+<p>Welcome back <b>{{user.firstName}} {{user.lastName}}</b> !</p>
+<br><br>
+
+<div class="container-flex-row ">
+	<div class="summary-avatar">
+		<!--<img src="{{serverAddress}}/users/avatars/{{user._id}}.jpg" onerror="this.src='assets/img/avatar-default.jpg'">-->
+		
+		<img [src]="imageSrc" onerror="this.src='assets/img/avatar-default.jpg'" (click)="fileInput.click()">
+		
+		<input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+		<!--<button (click)="fileInput.click()">Select File</button>-->
+		<button *ngIf="selectedAvatar" class="button-blue" (click)="onUpload()">Upload!</button>
+		<div class="note">Click your image to change it. New image must be .jpg and 512x512 max.</div>
+	</div>
+	
+	<div class="summary-display-name">
+		Display name :
+		<br>
+		<form [formGroup]="changeName" (ngSubmit)="onSubmit()" #formDir="ngForm">
+			<span class="input-default" [ngClass]="{
+				   	'input-fail': displayName.dirty && displayName.invalid,
+					'input-ok': displayName.dirty && displayName.valid}">
+				<input id="displayName" type="text" size="20" formControlName="displayName" placeholder="Display Name" required>
+			</span>
+			<!--<span *ngIf="displayName.invalid && displayName.dirty" class="input-result-invalid">Invalid display name.</span>-->
+			<button type="submit" [disabled]="!formDir.form.valid"> Save</button>
+		</form>
+		
+		<div class="note">
+			Note : your Display Name will be used as a pseudonym to hide your real name when you write public comments. It must contains between 4 and 24 characters.
+		</div>
+	</div>
+</div>
+
+<div class="separation-line"></div>
+
+<app-account-orders [limitDate]="orderHistoryLimitDateDays"></app-account-orders>
+<!--
+<div *ngIf="!loading">
+	<div *ngIf="orders; else emptyOrders">
+		<div *ngFor="let order of orders" class="container-orders">
+			<div class="order-title">
+				Order of the {{order.time | date:"M/d/yy, H:mm"}}
+			</div>
+			<div class="order-status">
+				<span>Status</span> : <span class="order-status-{{order.orderStatus}}">{{orderStatusVerbose[orderStatus[order.orderStatus]]}}</span>
+			</div>
+		</div>
+	</div>
+	
+	<ng-template #emptyOrders>
+		<div class="info">
+			You haven't ordered anything yet !
+		</div>
+	</ng-template>
+</div>-->
